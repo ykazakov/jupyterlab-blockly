@@ -71,7 +71,7 @@ source_dir = "src"
 build_dir = "jupyterlab_blockly/labextension"
 
 [tool.jupyter-releaser.options]
-version-cmd = "hatch version"
+version_cmd = "hatch version"
 
 [tool.jupyter-releaser.hooks]
 before-build-npm = [
