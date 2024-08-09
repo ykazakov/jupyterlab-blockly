@@ -69,11 +69,9 @@ editable_build_cmd = "install:extension"
 version-cmd = "hatch version"
 
 [tool.jupyter-releaser.hooks]
-before-bump-version = [
+before-build-npm = [
     "python -m pip install --pre -U jupyterlab>=4.0.0,<5",
     "jlpm"
-]
-before-build-npm = [
     "jlpm build:prod"
 ]
 before-build-python = [
