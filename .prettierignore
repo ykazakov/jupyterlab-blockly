@@ -2,6 +2,7 @@
 **/node_modules
 **/style
 **/package.json
+!/package.json
 **/tsconfig.json
 **/patches
 **/scripts

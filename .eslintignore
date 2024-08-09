@@ -33,3 +33,5 @@ setup.py
 tsconfig.eslint.json
 tsconfig.json
 yarn.lock
+.yarn.yml
+webpack.config.js

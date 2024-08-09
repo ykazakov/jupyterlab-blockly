@@ -17,7 +17,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'jupyterlab-blockly'
-copyright = '2022, Denisa Checiu'
+copyright = '2024, QuantStack'
 author = 'Denisa Checiu'
 
 # The full version, including alpha/beta/rc tags
