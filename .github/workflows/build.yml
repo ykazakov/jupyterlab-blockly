@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -23,7 +24,7 @@ jobs:
       run: |
         set -eux
         jlpm
-        jlpm run lint:check
+        jlpm eslint:check
 
     - name: Test the extension
       run: |
