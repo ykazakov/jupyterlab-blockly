@@ -12,6 +12,10 @@
   "bugs": {
     "url": "https://github.com/QuantStack/jupyterlab-blockly/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QuantStack/jupyterlab-blockly"
+  },
   "license": "BSD-3-Clause",
   "author": {
     "name": "quantstack",
