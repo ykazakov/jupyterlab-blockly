@@ -8,9 +8,9 @@
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/quantstack/jupyterlab-blockly",
+  "homepage": "https://github.com/QuantStack/jupyterlab-blockly",
   "bugs": {
-    "url": "https://github.com/quantstack/jupyterlab-blockly/issues"
+    "url": "https://github.com/QuantStack/jupyterlab-blockly/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -26,7 +26,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/quantstack/jupyterlab-blockly.git"
+    "url": "https://github.com/QuantStack/jupyterlab-blockly"
   },
   "scripts": {
     "build": "tsc -b",
