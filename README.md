@@ -16,7 +16,7 @@ Repo: https://github.com/google/blockly
 
 ## Requirements
 
-- JupyterLab == 3.6
+- JupyterLab >= 4.0.0
 
 ## Install
 
@@ -24,6 +24,10 @@ To install the extension, execute:
 
 ```bash
 conda install -c conda-forge jupyterlab-blockly
+```
+or 
+```bash
+pip install jupyterlab-blockly
 ```
 
 #### Kernels
@@ -41,6 +45,10 @@ To remove the extension, execute:
 ```bash
 conda uninstall -c conda-forge jupyterlab-blockly
 ```
+or
+```bash
+pip install jupyterlab-blockly
+```
 
 ## Contributing
 
@@ -53,7 +61,7 @@ The `jlpm` command is JupyterLab's pinned version of
 `yarn` or `npm` in lieu of `jlpm` below.
 
 ```bash
-micromamba create -n blockly -c conda-forge python nodejs=18 pre-commit jupyterlab==3.6 jupyter-packaging jupyterlab-language-pack-es-ES jupyterlab-language-pack-fr-FR ipykernel xeus-python xeus-lua
+micromamba create -n blockly -c conda-forge python nodejs=18 pre-commit jupyterlab jupyter-packaging jupyterlab-language-pack-es-ES jupyterlab-language-pack-fr-FR ipykernel xeus-python xeus-lua
 micromamba activate blockly
 # Clone the repo to your local environment
 # Change directory to the jupyterlab_blockly directory

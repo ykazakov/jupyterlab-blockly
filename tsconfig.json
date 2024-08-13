@@ -13,7 +13,7 @@
     "noUnusedLocals": true,
     "preserveWatchOutput": true,
     "resolveJsonModule": true,
-    "target": "es2018",
+    "target": "ES2018",
     "types": []
   }
 }

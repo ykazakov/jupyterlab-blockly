@@ -8,9 +8,13 @@
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/quantstack/jupyterlab-blockly",
+  "homepage": "https://github.com/QuantStack/jupyterlab-blockly",
   "bugs": {
-    "url": "https://github.com/quantstack/jupyterlab-blockly/issues"
+    "url": "https://github.com/QuantStack/jupyterlab-blockly/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QuantStack/jupyterlab-blockly"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -48,9 +52,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "patch-package": "^6.4.7",
-    "prettier": "^2.5.1",
     "postinstall-postinstall": "^2.1.0",
-    "typescript": "~4.9.5"
+    "prettier": "^2.5.1",
+    "typescript": "~5.0.2"
   },
   "devDependencies": {
     "lerna": "^6.5.1",

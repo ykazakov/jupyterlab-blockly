@@ -4,7 +4,10 @@ import {
   DocumentModel
 } from '@jupyterlab/docregistry';
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
-import { IEditorMimeTypeService } from '@jupyterlab/codeeditor';
+import {
+  IEditorFactoryService,
+  IEditorMimeTypeService
+} from '@jupyterlab/codeeditor';
 
 import { BlocklyEditor, BlocklyPanel } from './widget';
 import { BlocklyRegistry } from './registry';
@@ -20,6 +23,7 @@ export class BlocklyEditorFactory extends ABCWidgetFactory<
   private _registry: BlocklyRegistry;
   private _rendermime: IRenderMimeRegistry;
   private _mimetypeService: IEditorMimeTypeService;
+  private _factoryService: IEditorFactoryService;
 
   /**
    * Constructor of BlocklyEditorFactory.
@@ -31,6 +35,7 @@ export class BlocklyEditorFactory extends ABCWidgetFactory<
     this._registry = new BlocklyRegistry();
     this._rendermime = options.rendermime;
     this._mimetypeService = options.mimetypeService;
+    this._factoryService = options.factoryService;
   }
 
   get registry(): BlocklyRegistry {
@@ -54,7 +59,12 @@ export class BlocklyEditorFactory extends ABCWidgetFactory<
       context.sessionContext,
       this._mimetypeService
     );
-    const content = new BlocklyPanel(context, manager, this._rendermime);
+    const content = new BlocklyPanel(
+      context,
+      manager,
+      this._rendermime,
+      this._factoryService
+    );
     return new BlocklyEditor({ context, content, manager });
   }
 }
@@ -69,5 +79,9 @@ export namespace BlocklyEditorFactory {
      * A mimeType service instance.
      */
     mimetypeService: IEditorMimeTypeService;
+    /**
+     * An editor factory service instance.
+     */
+    factoryService: IEditorFactoryService;
   }
 }

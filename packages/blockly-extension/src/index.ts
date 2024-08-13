@@ -12,7 +12,8 @@ import { IFileBrowserFactory } from '@jupyterlab/filebrowser';
 import { ILauncher } from '@jupyterlab/launcher';
 import { ITranslator } from '@jupyterlab/translation';
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
-import { IKernelMenu, IMainMenu } from '@jupyterlab/mainmenu';
+import { IMainMenu } from '@jupyterlab/mainmenu';
+import { ReadonlyPartialJSONObject } from '@lumino/coreutils';
 
 import { IJupyterWidgetRegistry } from '@jupyter-widgets/base';
 
@@ -36,6 +37,10 @@ const PALETTE_CATEGORY = 'Blockly editor';
 
 namespace CommandIDs {
   export const createNew = 'blockly:create-new-blockly-file';
+  export const interruptKernel = 'blockly:interrupt-kernel';
+  export const reconnectToKernel = 'blockly:reconnect-to-kernel';
+  export const shutdownKernel = 'blockly:shutdown-kernel';
+  export const restartKernel = 'blockly:restart-kernel';
 }
 
 /**
@@ -110,9 +115,11 @@ const plugin: JupyterFrontEndPlugin<IBlocklyRegistry> = {
 
       // The rendermime instance, necessary to render the outputs
       // after a code execution. And the mimeType service to get the
-      // mimeType from the kernel language
+      // mimeType from the kernel language, as well as the factory service
+      // for the cell content factory.
       rendermime: rendermime,
       mimetypeService: editorServices.mimeTypeService,
+      factoryService: editorServices.factoryService,
 
       // The translator instance, used for the internalization of the plugin.
       translator: translator
@@ -213,33 +220,106 @@ const plugin: JupyterFrontEndPlugin<IBlocklyRegistry> = {
       });
     }
 
+    /**
+     * Whether there is an active Blockly Editor.
+     */
+    function isEnabled(): boolean {
+      return (
+        tracker.currentWidget !== null &&
+        tracker.currentWidget === app.shell.currentWidget
+      );
+    }
+
+    // Get the current widget and activate unless the args specify otherwise.
+    function getCurrent(args: ReadonlyPartialJSONObject): BlocklyEditor | null {
+      const widget = tracker.currentWidget;
+      const activate = args['activate'] !== false;
+      if (activate && widget) {
+        app.shell.activateById(widget.id);
+      }
+      return widget ?? null;
+    }
+
+    // Register kernel commands.
+    commands.addCommand(CommandIDs.interruptKernel, {
+      label: 'Interrupt Kernel',
+      execute: args => {
+        const current = getCurrent(args);
+        if (!current) {
+          return;
+        }
+        const kernel = current.context.sessionContext.session?.kernel;
+        if (kernel) {
+          return kernel.interrupt();
+        }
+        return Promise.resolve(void 0);
+      },
+      isEnabled
+    });
+
+    commands.addCommand(CommandIDs.restartKernel, {
+      label: 'Restart Kernel…',
+      execute: args => {
+        const current = getCurrent(args);
+        if (!current) {
+          return;
+        }
+        const kernel = current.context.sessionContext.session?.kernel;
+        if (kernel) {
+          return kernel.restart();
+        }
+        return Promise.resolve(void 0);
+      },
+      isEnabled
+    });
+
+    commands.addCommand(CommandIDs.shutdownKernel, {
+      label: 'Shut Down Kernel',
+      execute: args => {
+        const current = getCurrent(args);
+        if (!current) {
+          return;
+        }
+        return current.context.sessionContext.shutdown();
+      }
+    });
+
+    commands.addCommand(CommandIDs.reconnectToKernel, {
+      label: 'Reconnect to Kernel',
+      execute: args => {
+        const current = getCurrent(args);
+        if (!current) {
+          return;
+        }
+        const kernel = current.context.sessionContext.session?.kernel;
+        if (kernel) {
+          return kernel.reconnect();
+        }
+        return Promise.resolve(void 0);
+      }
+    });
+
     // Add the command to the main menu
     if (mainMenu) {
-      mainMenu.kernelMenu.kernelUsers.add({
-        tracker,
-        interruptKernel: current => {
-          const kernel = current.context.sessionContext.session?.kernel;
-          if (kernel) {
-            return kernel.interrupt();
-          }
-          return Promise.resolve(void 0);
-        },
-        reconnectToKernel: current => {
-          const kernel = current.context.sessionContext.session?.kernel;
-          if (kernel) {
-            return kernel.reconnect();
-          }
-          return Promise.resolve(void 0);
-        },
-        restartKernel: current => {
-          const kernel = current.context.sessionContext.session?.kernel;
-          if (kernel) {
-            return kernel.restart();
-          }
-          return Promise.resolve(void 0);
-        },
-        shutdownKernel: current => current.context.sessionContext.shutdown()
-      } as IKernelMenu.IKernelUser<BlocklyEditor>);
+      mainMenu.kernelMenu.kernelUsers.interruptKernel.add({
+        id: CommandIDs.interruptKernel,
+        isEnabled
+      });
+
+      mainMenu.kernelMenu.kernelUsers.reconnectToKernel.add({
+        id: CommandIDs.reconnectToKernel,
+        isEnabled
+      });
+
+      mainMenu.kernelMenu.kernelUsers.restartKernel.add({
+        id: CommandIDs.restartKernel,
+        isEnabled
+      });
+
+      mainMenu.kernelMenu.kernelUsers.shutdownKernel.add({
+        id: CommandIDs.shutdownKernel,
+        isEnabled
+      });
     }
 
     if (widgetRegistry) {

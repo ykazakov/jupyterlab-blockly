@@ -4,12 +4,13 @@ import { pythonGenerator } from 'blockly/python';
 import { javascriptGenerator } from 'blockly/javascript';
 import { luaGenerator } from 'blockly/lua';
 
-import En from 'blockly/msg/en';
+import * as En from 'blockly/msg/en';
 
 import { IBlocklyRegistry } from './token';
 import { TOOLBOX } from './utils';
 import type { ToolboxDefinition } from 'blockly/core/utils/toolbox';
 import { BlockDefinition } from 'blockly/core/blocks';
+import { installAllBlocks } from '@blockly/field-colour';
 
 /**
  * BlocklyRegistry is the class that JupyterLab-Blockly exposes
@@ -32,6 +33,13 @@ export class BlocklyRegistry implements IBlocklyRegistry {
     this._generators.set('python', pythonGenerator);
     this._generators.set('javascript', javascriptGenerator);
     this._generators.set('lua', luaGenerator);
+
+    // register color blocks with their respective language generators
+    installAllBlocks({
+      javascript: javascriptGenerator,
+      python: pythonGenerator,
+      lua: luaGenerator
+    });
   }
 
   /**

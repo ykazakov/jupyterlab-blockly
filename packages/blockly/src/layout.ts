@@ -1,10 +1,10 @@
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { ISessionContext, showErrorMessage } from '@jupyterlab/apputils';
-import { CodeCell, CodeCellModel } from '@jupyterlab/cells';
+import { Cell, CodeCell, CodeCellModel } from '@jupyterlab/cells';
+import { IEditorFactoryService } from '@jupyterlab/codeeditor';
 
 import { Message } from '@lumino/messaging';
 import { SplitLayout, SplitPanel, Widget } from '@lumino/widgets';
-import { IIterator, ArrayIterator } from '@lumino/algorithm';
 import { Signal } from '@lumino/signaling';
 
 import * as Blockly from 'blockly';
@@ -29,7 +29,8 @@ export class BlocklyLayout extends SplitLayout {
   constructor(
     manager: BlocklyManager,
     sessionContext: ISessionContext,
-    rendermime: IRenderMimeRegistry
+    rendermime: IRenderMimeRegistry,
+    factoryService: IEditorFactoryService
   ) {
     super({ renderer: SplitPanel.defaultRenderer, orientation: 'vertical' });
     this._manager = manager;
@@ -42,9 +43,14 @@ export class BlocklyLayout extends SplitLayout {
     // Creating a CodeCell widget to render the code and
     // outputs from the execution reply.
     this._cell = new CodeCell({
-      model: new CodeCellModel({}),
-      rendermime
-    });
+      contentFactory: new Cell.ContentFactory({
+        editorFactory: factoryService.newInlineEditor
+      }),
+      model: new CodeCellModel(),
+      rendermime,
+      placeholder: false
+    }).initializeState();
+
     // Trust the outputs and set the mimeType for the code
     this._cell.addClass('jp-blockly-codeCell');
     this._cell.readOnly = true;
@@ -106,8 +112,8 @@ export class BlocklyLayout extends SplitLayout {
   /**
    * Create an iterator over the widgets in the layout.
    */
-  iter(): IIterator<Widget> {
-    return new ArrayIterator([]);
+  iter(): IterableIterator<Widget> {
+    return [][Symbol.iterator]();
   }
 
   /**

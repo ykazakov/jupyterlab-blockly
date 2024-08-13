@@ -20,6 +20,7 @@ import {
   Spacer
 } from './toolbar';
 import { CodeCell } from '@jupyterlab/cells';
+import { IEditorFactoryService } from '@jupyterlab/codeeditor';
 
 /**
  * DocumentWidget: widget that represents the view or editor for a file type.
@@ -91,10 +92,16 @@ export class BlocklyPanel extends SplitPanel {
   constructor(
     context: DocumentRegistry.IContext<DocumentModel>,
     manager: BlocklyManager,
-    rendermime: IRenderMimeRegistry
+    rendermime: IRenderMimeRegistry,
+    factoryService: IEditorFactoryService
   ) {
     super({
-      layout: new BlocklyLayout(manager, context.sessionContext, rendermime)
+      layout: new BlocklyLayout(
+        manager,
+        context.sessionContext,
+        rendermime,
+        factoryService
+      )
     });
     this.addClass('jp-BlocklyPanel');
     this._context = context;
