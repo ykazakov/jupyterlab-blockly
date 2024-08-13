@@ -23,7 +23,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "jupyterlab_widgets~=1.1"
+    "jupyterlab_widgets"
 ]
 dynamic = ["version", "description", "authors", "urls", "keywords"]
 
