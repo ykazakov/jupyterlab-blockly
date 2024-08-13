@@ -19,4 +19,3 @@ dependencies:
   - wheel
   # additional packages for demos
   - ipywidgets >=8.1.3
-  - cookiecutter
