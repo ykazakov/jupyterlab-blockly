@@ -22,3 +22,4 @@ dependencies:
   - async_generator
   # additional packages for demos
   - ipywidgets
+  - jupyterlab-language-pack-fr-FR
