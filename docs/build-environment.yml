@@ -10,7 +10,6 @@ dependencies:
   - python
   - jupyerlab-blockly
   - pip:
-    # Remove all pinning when we support jupyterlab v4 in jupyterlab-blockly
     - jupyterlite-core
     - jupyterlite-sphinx
     - jupyterlite-xeus
