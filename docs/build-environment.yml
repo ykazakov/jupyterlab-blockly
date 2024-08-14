@@ -8,6 +8,7 @@ dependencies:
   - myst-parser
   - pydata-sphinx-theme
   - python
+  - jupyerlab-blockly
   - pip:
     # Remove all pinning when we support jupyterlab v4 in jupyterlab-blockly
     - jupyterlite-core
