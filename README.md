@@ -2,7 +2,7 @@
 
 [![Github Actions Status](https://github.com/QuantStack/jupyterlab-blockly/actions/workflows/build.yml/badge.svg)](https://github.com/quantstack/jupyterlab-blockly/actions/workflows/build.yml)
 [![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge-launch.svg)](https://jupyterlab-blockly.readthedocs.io/en/latest/lite/lab/index.html?path=example.jpblockly)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/quantstack/jupyterlab-blockly/main?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/quantstack/jupyterlab-blockly/main?urlpath=lab/tree/examples/example.jpblockly)
 
 
 Blockly extension for JupyterLab.

@@ -41,8 +41,7 @@
     "prettier": "jlpm prettier:base --write --list-different",
     "prettier:base": "prettier \"**/*{.ts,.tsx,.js,.jsx,.css}\"",
     "prettier:check": "jlpm prettier:base --check",
-    "watch": "lerna run --stream watch",
-    "postinstall": "patch-package"
+    "watch": "lerna run --stream watch"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.12.1",
@@ -51,7 +50,6 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
-    "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.5.1",
     "typescript": "~5.0.2"
