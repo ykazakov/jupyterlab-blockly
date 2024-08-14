@@ -111,43 +111,6 @@ const plugin: JupyterFrontEndPlugin<void> = {
 **NOTE** : `BlocklyNiryo` is defined in `niryo-one-python-generators.ts`.
 
 
-## Include patches
-Currently, for the extension to work, you will need to include the following patch from the JupyterLab-Blockly extension (make sure it is placed in a file named `@jupyterlab+codeeditor+3.4.3.patch`, inside the `patches` folder):
-
-```
-// patches/@jupyterlab+codeeditor+3.4.3.patch
-
-diff --git a/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts b/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts
-index ffe8d1f..d63b2f8 100644
---- a/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts
-+++ b/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts
-@@ -44,7 +44,7 @@ export declare namespace CodeEditor {
-     /**
-      * An interface describing editor state coordinates.
-      */
--    interface ICoordinate extends JSONObject, ClientRect {
-+    interface ICoordinate extends JSONObject {
-     }
-     /**
-      * A range.
-```
-
-You will also need to modify the `MANIFEST.in` file:
-```
-recursive-include patches *.patch
-```
-the `package.json` file:
-```
-"scripts": {
-  ...
-  "postinstall": "patch-package"
-}
-````
-and, finally, add `patch-package` as a dependency:
-```
-jlpm add patch-package
-```
-
 ## Additional configurations
 
 You will need to request the `jupyterlab-blockly` package as a dependency of your extension, in order to ensure it is installed and available to provide the token `IBlocklyRegistry`. To do this, you need to add the following line to your `setup.py` file.
@@ -157,7 +120,7 @@ You will need to request the `jupyterlab-blockly` package as a dependency of you
 
 setup_args = dict(
   ...
-  install_requires=['jupyterlab-blockly>=0.1.1,<0.2']
+  install_requires=['jupyterlab-blockly>=0.3.0,<0.4']
   ...
 )
 ```
