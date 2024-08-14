@@ -17,6 +17,7 @@ dependencies:
   - nodejs >=18,<19
   - pip
   - wheel
+  # packages needed for build to succeed
   - certipy
   - async_generator
   # additional packages for demos
