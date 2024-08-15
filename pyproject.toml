@@ -75,13 +75,11 @@ version_cmd = "python scripts/bump-version.py --force"
 
 [tool.jupyter-releaser.hooks]
 before-bump-version = [
-    "python -m pip install -U jupyterlab"
+    "python -m pip install 'jupyterlab>=4.0.0,<5'",
     "jlpm"
 ]
 before-build-npm = [
-    "python -m pip install 'jupyterlab>=4.0.0,<5'",
-    "jlpm"
-    "jlpm build:prod"
+    "YARN_ENABLE_IMMUTABLE_INSTALLS=0 jlpm build:prod"
 ]
 before-build-python = [
     # Build the assets
