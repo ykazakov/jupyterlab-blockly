@@ -71,13 +71,15 @@ source_dir = "src"
 build_dir = "jupyterlab_blockly/labextension"
 
 [tool.jupyter-releaser.options]
-version_cmd = "hatch version"
+version_cmd = "python scripts/bump-version.py --force"
 
 [tool.jupyter-releaser.hooks]
-before-build-npm = [
+before-bump-version = [
     "python -m pip install 'jupyterlab>=4.0.0,<5'",
-    "jlpm",
-    "jlpm build:prod"
+    "jlpm"
+]
+before-build-npm = [
+    "YARN_ENABLE_IMMUTABLE_INSTALLS=0 jlpm build:prod"
 ]
 before-build-python = [
     # Build the assets
