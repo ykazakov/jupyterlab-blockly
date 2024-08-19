@@ -168,8 +168,10 @@ const plugin: JupyterFrontEndPlugin<IBlocklyRegistry> = {
       // Get new language and call the function that modifies the language name accordingly.
       // Also, make the transformation to have the name of the language package as in Blockly.
       const language =
-        currentLocale[currentLocale.length - 2].toUpperCase() +
-        currentLocale[currentLocale.length - 1].toLowerCase();
+        currentLocale === 'default'
+          ? 'En'
+          : currentLocale[currentLocale.length - 2].toUpperCase() +
+            currentLocale[currentLocale.length - 1].toLowerCase();
       console.log(`Current Language : '${language}'`);
 
       // Transmitting the current language to the manager.
