@@ -120,7 +120,7 @@ You will need to request the `jupyterlab-blockly` package as a dependency of you
 
 setup_args = dict(
   ...
-  install_requires=['jupyterlab-blockly>=0.3.1,<0.4']
+  install_requires=['jupyterlab-blockly>=0.3.2,<0.4']
   ...
 )
 ```
