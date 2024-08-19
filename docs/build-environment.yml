@@ -8,8 +8,8 @@ dependencies:
   - myst-parser
   - pydata-sphinx-theme
   - python
-  - jupyterlab-blockly
   - pip:
+    - jupyterlab-blockly
     - jupyterlite-core
     - jupyterlite-sphinx
     - jupyterlite-xeus
