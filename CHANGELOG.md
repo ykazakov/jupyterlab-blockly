@@ -2,6 +2,22 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.3.2
+
+([Full Changelog](https://github.com/QuantStack/jupyterlab-blockly/compare/jupyterlab-blockly-extension@0.3.1...567d75e81ca64d2ab97f7e76e0944b3d74137299))
+
+### Bugs fixed
+
+- Fix `Blockly` language for default locale [#91](https://github.com/QuantStack/jupyterlab-blockly/pull/91) ([@DenisaCG](https://github.com/DenisaCG))
+
+### Contributors to this release
+
+([GitHub contributors page for this release](https://github.com/QuantStack/jupyterlab-blockly/graphs/contributors?from=2024-08-19&to=2024-08-19&type=c))
+
+[@DenisaCG](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3ADenisaCG+updated%3A2024-08-19..2024-08-19&type=Issues) | [@github-actions](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3Agithub-actions+updated%3A2024-08-19..2024-08-19&type=Issues)
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.3.1
 
 ([Full Changelog](https://github.com/QuantStack/jupyterlab-blockly/compare/1a19e126f987a561ee76e1b39b30658e93e59423...92f8b725ceb3d8cc5a5b72528e25004ad8863ff1))
@@ -43,8 +59,6 @@
 ([GitHub contributors page for this release](https://github.com/QuantStack/jupyterlab-blockly/graphs/contributors?from=2023-02-04&to=2024-08-19&type=c))
 
 [@afshin](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3Aafshin+updated%3A2023-02-04..2024-08-19&type=Issues) | [@bollwyvl](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3Abollwyvl+updated%3A2023-02-04..2024-08-19&type=Issues) | [@DenisaCG](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3ADenisaCG+updated%3A2023-02-04..2024-08-19&type=Issues) | [@github-actions](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3Agithub-actions+updated%3A2023-02-04..2024-08-19&type=Issues) | [@hbcarlos](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3Ahbcarlos+updated%3A2023-02-04..2024-08-19&type=Issues) | [@martinRenou](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3AmartinRenou+updated%3A2023-02-04..2024-08-19&type=Issues) | [@SylvainCorlay](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3ASylvainCorlay+updated%3A2023-02-04..2024-08-19&type=Issues)
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.3.0
 
