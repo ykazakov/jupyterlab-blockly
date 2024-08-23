@@ -146,7 +146,7 @@ module.exports = /** @type { import('webpack').Configuration } */ ({
 });
 ```
 
-and by connecting the `webpack` config to your `jupyterlab` intstance, by adding the following line inside your `package.json`: 
+and by connecting the `webpack` config to your `jupyterlab` instance, which entails adding the following line inside your `package.json`: 
 
 ```json
 "jupyterlab": {
