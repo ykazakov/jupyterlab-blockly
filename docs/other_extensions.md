@@ -3,15 +3,14 @@
 The JupyterLab-Blockly extension is ready to be used as a base for other projects: you can register new Blocks, Toolboxes and Generators. It is a great tool for fast prototyping.
 
 ## Creating a new JupyterLab extension
-You can easily create a new JupyterLab extension by using a `cookiecutter`. You can read more documentation about `cookiecutters` [here](https://cookiecutter.readthedocs.io/en/latest/), but the process is fairly straight-forward.
+You can easily create a new JupyterLab extension by using the official `copier` template, documented [here](https://github.com/jupyterlab/extension-template).
 
-After running the following command:
+After installing the needed plugins (mentioned in the above link) and creating an extension directory, you can run the following command:
 ```
-cookiecutter https://github.com/jupyterlab/extension-cookiecutter-ts
-```
- the `cookiecutter` will ask for some basic information about your project. Once completed, it will create a directory containing several files, all forming the base of your project. You will mostly work in the `index.ts` file, located in the `src` folder.
+copier copy --trust https://github.com/jupyterlab/extension-template .
+which will ask you to fill some basic information about your project. Once completed, the directory will be populated with several files, all forming the base of your project. You will mostly work in the `index.ts` file, located in the `src` folder.
 
-An example of creating a simple JupyterLab extension, which also contains the instructions of how to fill the information asked by the `cookiecutter`, can be found [here](https://github.com/jupyterlab/extension-examples/tree/master/hello-world).
+An example of creating a simple JupyterLab extension, which also contains the instructions of how to fill the information asked by the `copier` template, can be found [here](https://github.com/jupyterlab/extension-examples/tree/master/hello-world).
 
 
 ## Importing JupyterLab-Blockly
@@ -113,34 +112,46 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
 ## Additional configurations
 
-You will need to request the `jupyterlab-blockly` package as a dependency of your extension, in order to ensure it is installed and available to provide the token `IBlocklyRegistry`. To do this, you need to add the following line to your `setup.py` file.
+You will need to request the `jupyterlab-blockly` package as a dependency for your extension, in order to ensure it is installed and available to provide the token `IBlocklyRegistry`. To do this, you need to add the following line to your `pyproject.toml` file.
 
-```python
-// setup.py : 57
+```toml
+// pyproject.toml : 26
 
-setup_args = dict(
-  ...
-  install_requires=['jupyterlab-blockly>=0.3.2,<0.4']
-  ...
-)
+dependencies = [
+    "jupyterlab-blockly>=0.3.2,<0.4",
+    ... // add any additional dependencies needed for your extension
+]
 ```
 
-Moreover, as we are working with deduplication of dependencies and the extension you are creating requires a service identified by a token from `jupyterlab-blockly`, you need to add the following configuration to your `package.json` file.
+Additionally, you will need to add the webpack configuration for loading the `Blockly` source maps.
 
+You can do this, by creating the following `webpack.config.js` file inside your root directory:
+
+```js
+// @ts-check
+
+module.exports = /** @type { import('webpack').Configuration } */ ({
+  devtool: 'source-map',
+  module: {
+    rules: [
+      // Load Blockly source maps.
+      {
+        test: /(blockly\/.*\.js)$/,
+        use: [require.resolve('source-map-loader')],
+        enforce: 'pre'
+      }
+    ].filter(Boolean)
+  },
+  // https://github.com/google/blockly-samples/blob/9974e85becaa8ad17e35b588b95391c85865dafd/plugins/dev-scripts/config/webpack.config.js#L118-L120
+  ignoreWarnings: [/Failed to parse source map/]
+});
 ```
-// package.json : 88-101
 
+and by connecting the `webpack` config to your `jupyterlab` intstance, by adding the following line inside your `package.json`: 
+
+```json
 "jupyterlab": {
-  "sharedPackages": {
-     "jupyterlab-blockly": {
-       "bundled": false,
-       "singleton": true
-     },
-     "blockly": {
-       "bundled": false,
-       "singleton": true
-     }
-   }
- }
+    ...
+    "webpackConfig": "./webpack.config.js"
+  }
 ```
-This ensures your extension will get the exact same token the provider is using to identify the service and exclude it from its bundle as the provider will give a copy of the token. You can read more about deduplication of dependencies [here](https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html#deduplication-of-dependencies), in the official *Extension Developer Guide for JupyterLab*.
