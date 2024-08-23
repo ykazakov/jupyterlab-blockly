@@ -115,7 +115,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
 You will need to request the `jupyterlab-blockly` package as a dependency for your extension, in order to ensure it is installed and available to provide the token `IBlocklyRegistry`. To do this, you need to add the following line to your `pyproject.toml` file.
 
-```toml
+```
 // pyproject.toml : 26
 
 dependencies = [
