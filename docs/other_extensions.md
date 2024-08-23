@@ -8,6 +8,7 @@ You can easily create a new JupyterLab extension by using the official `copier` 
 After installing the needed plugins (mentioned in the above link) and creating an extension directory, you can run the following command:
 ```
 copier copy --trust https://github.com/jupyterlab/extension-template .
+```
 which will ask you to fill some basic information about your project. Once completed, the directory will be populated with several files, all forming the base of your project. You will mostly work in the `index.ts` file, located in the `src` folder.
 
 An example of creating a simple JupyterLab extension, which also contains the instructions of how to fill the information asked by the `copier` template, can be found [here](https://github.com/jupyterlab/extension-examples/tree/master/hello-world).
