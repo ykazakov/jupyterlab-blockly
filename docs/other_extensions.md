@@ -124,9 +124,7 @@ dependencies = [
 ]
 ```
 
-Additionally, you will need to add the webpack configuration for loading the `Blockly` source maps.
-
-You can do this, by creating the following `webpack.config.js` file inside your root directory:
+Additionally, you will need to add the webpack configuration for loading the `Blockly` source maps. You can do this, by creating the following `webpack.config.js` file inside your root directory:
 
 ```js
 // @ts-check
