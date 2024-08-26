@@ -37,6 +37,9 @@ dev = [
 [tool.hatch.version]
 source = "nodejs"
 
+[tool.hatch.build.hooks.version]
+path = "jupyterlab_blockly/_version.py"
+
 [tool.hatch.metadata.hooks.nodejs]
 fields = ["description", "authors", "urls"]
 
@@ -83,9 +86,7 @@ before-build-npm = [
 ]
 before-build-python = [
     # Build the assets
-    "jlpm build:prod",
-    # Clean the build artifacts to not include them in sdist
-    "jlpm clean"
+    "jlpm build:prod"
 ]
 
 [tool.check-wheel-contents]
