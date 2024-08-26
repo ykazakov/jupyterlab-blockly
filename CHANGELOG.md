@@ -2,6 +2,28 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.3.3
+
+([Full Changelog](https://github.com/QuantStack/jupyterlab-blockly/compare/jupyterlab-blockly-extension@0.3.2...e9602251ec5a7ced9700b1f3a35d0a72b9550dc7))
+
+### Bugs fixed
+
+- Generate \_version.py at build time [#100](https://github.com/QuantStack/jupyterlab-blockly/pull/100) ([@martinRenou](https://github.com/martinRenou))
+- Update Lite deployment  [#90](https://github.com/QuantStack/jupyterlab-blockly/pull/90) ([@DenisaCG](https://github.com/DenisaCG))
+
+### Documentation improvements
+
+- Update docs [#99](https://github.com/QuantStack/jupyterlab-blockly/pull/99) ([@DenisaCG](https://github.com/DenisaCG))
+- Update Lite deployment  [#90](https://github.com/QuantStack/jupyterlab-blockly/pull/90) ([@DenisaCG](https://github.com/DenisaCG))
+
+### Contributors to this release
+
+([GitHub contributors page for this release](https://github.com/QuantStack/jupyterlab-blockly/graphs/contributors?from=2024-08-19&to=2024-08-26&type=c))
+
+[@DenisaCG](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3ADenisaCG+updated%3A2024-08-19..2024-08-26&type=Issues) | [@github-actions](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3Agithub-actions+updated%3A2024-08-19..2024-08-26&type=Issues) | [@martinRenou](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3AmartinRenou+updated%3A2024-08-19..2024-08-26&type=Issues)
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.3.2
 
 ([Full Changelog](https://github.com/QuantStack/jupyterlab-blockly/compare/jupyterlab-blockly-extension@0.3.1...567d75e81ca64d2ab97f7e76e0944b3d74137299))
@@ -15,8 +37,6 @@
 ([GitHub contributors page for this release](https://github.com/QuantStack/jupyterlab-blockly/graphs/contributors?from=2024-08-19&to=2024-08-19&type=c))
 
 [@DenisaCG](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3ADenisaCG+updated%3A2024-08-19..2024-08-19&type=Issues) | [@github-actions](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-blockly+involves%3Agithub-actions+updated%3A2024-08-19..2024-08-19&type=Issues)
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.3.1
 
