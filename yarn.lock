@@ -474,22 +474,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyter-widgets/base-manager@npm:^1.0.9":
-  version: 1.0.9
-  resolution: "@jupyter-widgets/base-manager@npm:1.0.9"
+"@jupyter-widgets/base-manager@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "@jupyter-widgets/base-manager@npm:1.0.11"
   dependencies:
-    "@jupyter-widgets/base": ^6.0.8
+    "@jupyter-widgets/base": ^6.0.10
     "@jupyterlab/services": ^6.0.0 || ^7.0.0
     "@lumino/coreutils": ^1.11.1 || ^2
     base64-js: ^1.2.1
     sanitize-html: ^2.3
-  checksum: 6ec1d7dd16020dfd2798d9e53dca00e60951c72ec3545838a5a331de6226e7a2a260dae14ae487485024cdfdef59db9959868d29e49a742f9b3ff58e79d98b5c
+  checksum: 04ef40b05f38ac081cae63c5201a09c30c587df8039671e4d11b16fd911171bd3507deb7b2bc7d7f0e7805bfedb7fee77ebd2560606d6570659c669abc19e374
   languageName: node
   linkType: hard
 
-"@jupyter-widgets/base@npm:6.0.6":
-  version: 6.0.6
-  resolution: "@jupyter-widgets/base@npm:6.0.6"
+"@jupyter-widgets/base@npm:^6.0.10":
+  version: 6.0.10
+  resolution: "@jupyter-widgets/base@npm:6.0.10"
   dependencies:
     "@jupyterlab/services": ^6.0.0 || ^7.0.0
     "@lumino/coreutils": ^1.11.1 || ^2.1
@@ -500,32 +500,15 @@ __metadata:
     backbone: 1.4.0
     jquery: ^3.1.1
     lodash: ^4.17.4
-  checksum: 6414a56d7aaf287462b97f192f5022f9f3f52809df2e6e49b64073cb6ab851dea005033d508730140159e4dc6ef54a2af2d637c6ce3b6813a52d29fc153be296
+  checksum: 423f96bf6bee953f9347e7fb85a89bbae5f4040a91ab6d6769bc72b1f9752b388cb3b9ede68032133c4c567fc411d06ced290e0bfb80d3c348caa0eaf81cab9b
   languageName: node
   linkType: hard
 
-"@jupyter-widgets/base@npm:^6.0.8":
-  version: 6.0.8
-  resolution: "@jupyter-widgets/base@npm:6.0.8"
+"@jupyter-widgets/controls@npm:^5.0.11":
+  version: 5.0.11
+  resolution: "@jupyter-widgets/controls@npm:5.0.11"
   dependencies:
-    "@jupyterlab/services": ^6.0.0 || ^7.0.0
-    "@lumino/coreutils": ^1.11.1 || ^2.1
-    "@lumino/messaging": ^1.10.1 || ^2.1
-    "@lumino/widgets": ^1.30.0 || ^2.1
-    "@types/backbone": 1.4.14
-    "@types/lodash": ^4.14.134
-    backbone: 1.4.0
-    jquery: ^3.1.1
-    lodash: ^4.17.4
-  checksum: fcc7affd49a0b227725082813eac6d8e6ca29f6a0446bd7914394c041382d881263d69dacf3a9463cdb0e207458401c65aaf1f50c708ce7378c701b4a18d10b8
-  languageName: node
-  linkType: hard
-
-"@jupyter-widgets/controls@npm:^5.0.9":
-  version: 5.0.9
-  resolution: "@jupyter-widgets/controls@npm:5.0.9"
-  dependencies:
-    "@jupyter-widgets/base": ^6.0.8
+    "@jupyter-widgets/base": ^6.0.10
     "@lumino/algorithm": ^1.9.1 || ^2.1
     "@lumino/domutils": ^1.8.1 || ^2.1
     "@lumino/messaging": ^1.10.1 || ^2.1
@@ -535,18 +518,18 @@ __metadata:
     d3-format: ^3.0.1
     jquery: ^3.1.1
     nouislider: 15.4.0
-  checksum: e54fb7738b1a070dba32478d45162253c6c20d4f73b074ce48912215dbf4fa77f95f3f4986773a4bbcbc970e17a75de6807ac494274880e3f5a43a20ee3c0f71
+  checksum: dd995d4a17898e7bca4fa1ec4bfa643ed705b9592fca847f870babd3db72cc6cc76c6b7dcf5d3bb421f952505a273332b9429294e2ffe4cfff289076802c0aef
   languageName: node
   linkType: hard
 
-"@jupyter-widgets/jupyterlab-manager@npm:^5.0.9":
-  version: 5.0.11
-  resolution: "@jupyter-widgets/jupyterlab-manager@npm:5.0.11"
+"@jupyter-widgets/jupyterlab-manager@npm:^5.0.13":
+  version: 5.0.13
+  resolution: "@jupyter-widgets/jupyterlab-manager@npm:5.0.13"
   dependencies:
-    "@jupyter-widgets/base": ^6.0.8
-    "@jupyter-widgets/base-manager": ^1.0.9
-    "@jupyter-widgets/controls": ^5.0.9
-    "@jupyter-widgets/output": ^6.0.8
+    "@jupyter-widgets/base": ^6.0.10
+    "@jupyter-widgets/base-manager": ^1.0.11
+    "@jupyter-widgets/controls": ^5.0.11
+    "@jupyter-widgets/output": ^6.0.10
     "@jupyterlab/application": ^3.0.0 || ^4.0.0
     "@jupyterlab/apputils": ^3.0.0 || ^4.0.0
     "@jupyterlab/console": ^3.0.0 || ^4.0.0
@@ -569,16 +552,16 @@ __metadata:
     "@types/backbone": 1.4.14
     jquery: ^3.1.1
     semver: ^7.3.5
-  checksum: bc604e98157e1c7a26be6bbeaeea3c3ba30f822cdf40da446ead567ef4b9e60a67d56afe7f9559e38309ac55f1dee012f5f18eff1312d035b0149cd19669adc4
+  checksum: 3862f58e962386877e1e47563c92d23df4a55671c7e10974d424b08eeaca423b1f359dcc62c1c3c8bbe09cced790f3b1fd5180943d794ab3f521193a827c23dc
   languageName: node
   linkType: hard
 
-"@jupyter-widgets/output@npm:^6.0.8":
-  version: 6.0.8
-  resolution: "@jupyter-widgets/output@npm:6.0.8"
+"@jupyter-widgets/output@npm:^6.0.10":
+  version: 6.0.10
+  resolution: "@jupyter-widgets/output@npm:6.0.10"
   dependencies:
-    "@jupyter-widgets/base": ^6.0.8
-  checksum: aad3fea1ab11d92fa401e81592f88c91ff1cdaee050d9dac7df0c5c4beee9ea83b0ddba4e8ecc64da0000b708ae04a71bfde8e453cc7a7b56ce0ed58c12e8b75
+    "@jupyter-widgets/base": ^6.0.10
+  checksum: ebe2173753b5a6c9aa62d47657f45ccd9baa41f374b5fa24aee67e235d73e0b99e4f2a4b9badd9e2461f3078b9e9261ccdd63fd03eda2ecf177e79b3b41a356e
   languageName: node
   linkType: hard
 
@@ -6398,8 +6381,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jupyterlab-blockly-extension@workspace:packages/blockly-extension"
   dependencies:
-    "@jupyter-widgets/base": 6.0.6
-    "@jupyter-widgets/jupyterlab-manager": ^5.0.9
+    "@jupyter-widgets/base": ^6.0.10
+    "@jupyter-widgets/jupyterlab-manager": ^5.0.13
     "@jupyterlab/application": ^4.2
     "@jupyterlab/apputils": ^4.2
     "@jupyterlab/builder": ^4.2.4
