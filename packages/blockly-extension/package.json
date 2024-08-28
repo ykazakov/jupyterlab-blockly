@@ -43,8 +43,8 @@
     "watch:labextension": "jupyter labextension watch ."
   },
   "dependencies": {
-    "@jupyter-widgets/base": "6.0.6",
-    "@jupyter-widgets/jupyterlab-manager": "^5.0.9",
+    "@jupyter-widgets/base": "^6.0.10",
+    "@jupyter-widgets/jupyterlab-manager": "^5.0.13",
     "@jupyterlab/application": "^4.2",
     "@jupyterlab/apputils": "^4.2",
     "@jupyterlab/cells": "^4.2",
